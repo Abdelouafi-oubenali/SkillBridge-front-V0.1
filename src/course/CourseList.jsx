@@ -11,7 +11,6 @@ function CourseList() {
   const [courseTags, setCourseTags] = useState([]);
   const [editCourseId, setEditCourseId] = useState(null);
   const [showForm, setShowForm] = useState(false); 
-
   const token = 'Bearer 9|C49wSDdMUBcJ6upuz01UVWkwQjZez5IQGs3SPF6Vc81a0f56';
 
   const fetchCourses = () => {
@@ -28,7 +27,7 @@ function CourseList() {
 
   const fetchCategories = () => {
     axios.get('http://localhost:8000/api/V1/categories', {
-      headers: { 'Authorization': token },
+      headers: {'Authorization': token },
     })
     .then(response => {
       setCategories(response.data);
@@ -73,8 +72,8 @@ function CourseList() {
     .then(() => {
       resetForm();
       fetchCourses();
-      setShowForm(false); 
-    })
+      setShowForm(false);
+    })  
     .catch(error => {
       console.error("Erreur lors de l'ajout:", error);
     });
